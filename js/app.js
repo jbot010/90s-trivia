@@ -13,15 +13,29 @@
 
 /*---- Cached Element References ----*/
 // const promptContainer = document.querySelector('#prompt-container')
-// const answerContainer = document.querySelector('#answer-container')
+const btnZero = document.querySelector('#answer-0')
+const btnOne = document.querySelector('#answer-1')
+const btnTwo = document.querySelector('#answer-2')
+const btnThree = document.querySelector('#answer-3')
 
 
 /*--------- Event Listeners ---------*/
-// answerContainer.addEventListener('click')
-
-
-
+btnZero.addEventListener('click', function(evt){
+  console.log(evt)
+})
+btnOne.addEventListener('click', function(evt){
+  console.log(evt)
+})
+btnTwo.addEventListener('click', function(evt){
+  console.log(evt)
+})
+btnThree.addEventListener('click', function(evt){
+  console.log(evt)
+})
 
 
 
 /*------------ Functions ------------*/
+// function correctAnswer() {
+
+// }
