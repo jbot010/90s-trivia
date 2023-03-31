@@ -1,12 +1,12 @@
 /*------------ Constants ------------*/
 import { getRandomPrompt } from "../data/prompts.js"
-// import { getAnswers } from "../data/answers"
+import { getAnswers } from "../data/answers.js"
 
 
 
 /*------------ Variables ------------*/
 const prompts = []
-// const answers = []
+const answers = []
 
 
 
@@ -27,9 +27,9 @@ startBtn.addEventListener('click', function(evt){
 })
 
 btnZero.addEventListener('click', () => {
-  const newAnswerZero = getRandomPrompt()
-  prompts.push(newAnswerZero)
-  console.log(prompts)
+  const newAnswerZero = getAnswers()
+  answers.push(newAnswerZero)
+  console.log(answers)
   console.log('Answer 0')
 })
 
