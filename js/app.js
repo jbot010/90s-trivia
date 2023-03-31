@@ -1,17 +1,19 @@
 /*------------ Constants ------------*/
-// import { getRandomPrompt } from "../data/prompts"
+import { getRandomPrompt } from "../data/prompts.js"
 // import { getAnswers } from "../data/answers"
 
 
 
 /*------------ Variables ------------*/
-// const prompts = []
+const prompts = []
 // const answers = []
 
 
 
 
 /*---- Cached Element References ----*/
+const startBtn = document.querySelector('#start-button')
+
 // const promptContainer = document.querySelector('#prompt-container')
 const btnZero = document.querySelector('#answer-0')
 const btnOne = document.querySelector('#answer-1')
@@ -20,17 +22,25 @@ const btnThree = document.querySelector('#answer-3')
 
 
 /*--------- Event Listeners ---------*/
-btnZero.addEventListener('click', function(evt){
-  console.log(evt)
+startBtn.addEventListener('click', function(evt){
+  console.log('Start Button!')
 })
+
+btnZero.addEventListener('click', () => {
+  const newAnswerZero = getRandomPrompt()
+  prompts.push(newAnswerZero)
+  console.log(prompts)
+  console.log('Answer 0')
+})
+
 btnOne.addEventListener('click', function(evt){
-  console.log(evt)
+  console.log('Answer 1')
 })
 btnTwo.addEventListener('click', function(evt){
-  console.log(evt)
+  console.log('Answer 2')
 })
 btnThree.addEventListener('click', function(evt){
-  console.log(evt)
+  console.log('Answer 3')
 })
 
 
