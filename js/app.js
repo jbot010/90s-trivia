@@ -1,12 +1,12 @@
 /*------------ Constants ------------*/
-import { getRandomPrompt } from "../data/prompts.js"
-import { getAnswers } from "../data/answers.js"
+import { getCategory } from "../data/answers.js"
+
 
 
 
 /*------------ Variables ------------*/
-const prompts = []
-const answers = []
+// const prompts = []
+let category = {}
 
 
 
@@ -23,15 +23,19 @@ const btnThree = document.querySelector('#answer-3')
 
 /*--------- Event Listeners ---------*/
 startBtn.addEventListener('click', function(evt){
-  console.log('Start Button!')
+  category = getCategory(0) 
+  console.log('Start Button!', category)
 })
 
 btnZero.addEventListener('click', () => {
-  const newAnswerZero = getAnswers()
-  answers.push(newAnswerZero)
-  console.log(answers)
-  console.log('Answer 0')
+  // const newAnswerZero = getCategory()
+  // categories.push(newAnswerZero)
+  // console.log(categories)
+  // console.log('Answer 0')
 })
+
+// for selected topic ('tvFilm', 'music', 'popCulter') 
+//generate question and corresponding answer choices (as buttons) 
 
 btnOne.addEventListener('click', function(evt){
   console.log('Answer 1')
