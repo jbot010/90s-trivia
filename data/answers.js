@@ -1,9 +1,30 @@
 const tvFilm = [
-  {
+  { number: 1,
   question: "What was the #1 watch TV show in 1999",
   image: 'friends.png',
   choices: ['Friends', 'ER', 'Fraiser', 'Seinfeld'], 
-  answerIdx: 0
+  answerIdx: 0,
+  used: false,
+  },
+  {question: "Which animated film was the first Disney film to be released on DVD?",
+  image: 'dvd.png',
+  choices: ['Aladdin', 'The Lion King', 'Fantasia', 'Mulan' ],
+  answerIdx: 3
+  },
+  {question: "What 1997 action film stars John Malkovich, Nicolas Cage, and John Cusack?",
+  image: 'cage.png',
+  choices: ['Say Anything', 'Being John Malkovich', 'Con Air', 'Face/Off' ],
+  answerIdx: 2
+  },
+  {question: "What is the name of the island where Jurassic Park is set?",
+  image: 'island.png',
+  choices: ['Oahu', 'Dino Island', 'Isla Nublar', 'Isla Nueva' ],
+  answerIdx: 2
+  },
+  {question: "What is the name of the movie where Bruce Willis plays a 23rd century New York City cabbie?",
+  image: 'nyc.png',
+  choices: ['Die Hard', 'The Fifth Element', '12 Monkeys', 'Last Man Standing' ],
+  answerIdx: 1
   },
   // -->  ADD MORE OBJECTS TO ARRAY
 ]
@@ -26,15 +47,10 @@ const popCulture = [
   },
 ]
 
-
-
-
-
-
-
-
-
-const categories = [{name: 'TV & Film', img:'', questions: tvFilm}]
+const categories = [
+  {name: 'TV & Film', img:'', questions: tvFilm}, 
+  {name: 'Sports', img: '', questions: sports}, 
+  {name: 'Pop Culture', img: '', questions: popCulture}]
 
 function getCategory(index) {
   return categories[index]
@@ -43,3 +59,23 @@ function getCategory(index) {
 export {
   getCategory,
 }
+
+
+// function startCategory() {
+//   for (let i = 0; i < tvFilm.length; i++) {
+//     const tvFquestion = tvFilm[i];
+//     console.log(tvFilm[i].question);
+//   }
+// }
+// startCategory()
+
+
+// console.log(categories[1].questions);
+
+// // console.log(sports[0]);
+// // console.log(tvFilm[0].question);
+// // console.log(popCulture[0].choices);
+
+// categories.forEach(function(val){
+//   console.log(val);
+// })
