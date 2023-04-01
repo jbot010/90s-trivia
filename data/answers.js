@@ -59,23 +59,3 @@ function getCategory(index) {
 export {
   getCategory,
 }
-
-
-// function startCategory() {
-//   for (let i = 0; i < tvFilm.length; i++) {
-//     const tvFquestion = tvFilm[i];
-//     console.log(tvFilm[i].question);
-//   }
-// }
-// startCategory()
-
-
-// console.log(categories[1].questions);
-
-// // console.log(sports[0]);
-// // console.log(tvFilm[0].question);
-// // console.log(popCulture[0].choices);
-
-// categories.forEach(function(val){
-//   console.log(val);
-// })

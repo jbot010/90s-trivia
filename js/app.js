@@ -21,10 +21,6 @@ const startBtn = document.querySelector('#start-button')
 const categoryContainer = document.querySelector('#category-container')
 const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
-// const btnZero = document.querySelector('#answer-0')
-// const btnOne = document.querySelector('#answer-1')
-// const btnTwo = document.querySelector('#answer-2')
-// const btnThree = document.querySelector('#answer-3')
 
 const btnNextQ = document.querySelector('#next-question')
 
@@ -43,32 +39,8 @@ startBtn.addEventListener('click', function(evt){
   renderCategory()
   addCatToScore()
   renderQandA() 
-  console.log(category, scores)
+  // console.log(category, scores)
 })
-
-// btnZero.addEventListener('click', () => {
-//   // const newAnswerZero = getCategory()
-//   // categories.push(newAnswerZero)
-//   // console.log(categories)
-//   console.log('Answer 0')
-// })
-
-// // for selected topic ('tvFilm', 'music', 'popCulture') 
-// //generate question and corresponding answer choices (as buttons) 
-
-// btnOne.addEventListener('click', function(evt){
-//   console.log('Answer 1')
-// })
-// btnTwo.addEventListener('click', function(evt){
-//   console.log('Answer 2')
-// })
-// btnThree.addEventListener('click', function(evt){
-//   console.log('Answer 3')
-// })
-// btnNextQ.addEventListener('click', function(){
-//   console.log('Next Question');
-// })
-
 
 /*------------ Functions ------------*/
 function init() {
@@ -91,17 +63,22 @@ function renderQandA(){
     choicesContainer.appendChild(divElement)
     const choiceEl = document.querySelector(`#choice-${index}`)
     choiceEl.addEventListener('click', handleSelect)
-    console.log(choiceEl);
+    // console.log(choiceEl);
   })
 }
 
 function handleSelect(evt){
   const value = evt.target.id
-console.log(value, evt);
-//split value at 'choice- '
-//convert string to number
-//compare number to answerIdx
-//add to score to object
+  const idxString = value.split('choice-')[1]
+  const choiceIndex = parseInt(idxString)
+  console.log(choiceIndex, evt);
+  const answerIdx = category.questions[questionIndex].answerIdx
+  if (choiceIndex === answerIdx) {
+    updateCatScore()
+  //TODO -> add else statement, add correct or incorrect visual or audio feedback
+  // if answer is correct, update score, else don't update score
+}
+// console.log(typeof choiceIndex);
 
 }
 
