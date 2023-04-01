@@ -52,10 +52,13 @@ const categories = [
   {name: 'Sports', img: '', questions: sports}, 
   {name: 'Pop Culture', img: '', questions: popCulture}]
 
+const categoryCount = categories.length
+
 function getCategory(index) {
   return categories[index]
 }
 
 export {
   getCategory,
+  categoryCount
 }

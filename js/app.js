@@ -1,5 +1,5 @@
 /*------------ Constants ------------*/
-import { getCategory } from "../data/answers.js"
+import { getCategory, categoryCount } from "../data/answers.js"
 
 
 
@@ -8,16 +8,14 @@ import { getCategory } from "../data/answers.js"
 let category = {}
 let categoryIndex = 0
 let questionIndex = 0
-function setCategory(){
-  categoryIndex = categoryIndex + 1
-  //TODO -> get category amount by length
-} 
-
 let scores = []
 // [[0,0], [0,0], [0,0] ] 
 // [[2,5]]   
+
+
 /*---- Cached Element References ----*/
 const startBtn = document.querySelector('#start-button')
+
 const categoryContainer = document.querySelector('#category-container')
 const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
@@ -35,12 +33,21 @@ function updateCatScore(){
 }
 /*--------- Event Listeners ---------*/
 startBtn.addEventListener('click', function(evt){
-  category = getCategory(0)
+  setCategory()
   renderCategory()
   addCatToScore()
   renderQandA() 
   // console.log(category, scores)
 })
+
+btnNextQ.addEventListener('click',function(evt){
+  changeCategory()
+  renderCategory()
+  addCatToScore()
+  renderQandA()
+})
+//check if question is last question. Needs to change category
+//create function to update the category
 
 /*------------ Functions ------------*/
 function init() {
@@ -52,6 +59,21 @@ function renderCategory(){
   categoryContainer.innerHTML = `<h3>${categoryName}</h3>`
 
 }
+
+function setCategory(){
+  category = getCategory(categoryIndex)
+}
+
+function changeCategory(){
+  console.log(categoryCount, categoryIndex);
+  if (categoryIndex === categoryCount - 1){
+    console.log('End of Game');
+  } else {
+    categoryIndex = categoryIndex + 1
+    setCategory()
+  }
+}
+
 
 function renderQandA(){
   // console.log(category)
@@ -75,8 +97,11 @@ function handleSelect(evt){
   const answerIdx = category.questions[questionIndex].answerIdx
   if (choiceIndex === answerIdx) {
     updateCatScore()
+    console.log('Correct');
   //TODO -> add else statement, add correct or incorrect visual or audio feedback
   // if answer is correct, update score, else don't update score
+} else {
+  console.log('Incorrect');
 }
 // console.log(typeof choiceIndex);
 
