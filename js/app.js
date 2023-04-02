@@ -12,11 +12,13 @@ let scores = []
 
 /*---- Cached Element References ----*/
 const startBtn = document.querySelector('#start-button')
-const btnNextQ = document.querySelector('#next-question')
+const NextQBtn = document.querySelector('#next-question')
 
 const categoryContainer = document.querySelector('#category-container')
 const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
+const answerContainer = document.querySelector('#answer-container')
+
 
 //initial score
 function addCatToScore(){
@@ -25,26 +27,20 @@ function addCatToScore(){
 
 function updateCatScore(){
   scores[categoryIndex][0] = scores[categoryIndex][0] + 1
-
 }
-
-
-// reset game -> reset score, cat index, question index
-// start game -> get cat ( set score) 
-// next category -> change category 
 
 /*--------- Event Listeners ---------*/
 startBtn.addEventListener('click', function(evt){
   setCategory()
   renderCategory()
   addCatToScore()
-  renderQandA() 
-  // console.log(category, scores)
+  renderQandA()
+  renderNextBtn() 
+  console.log(renderNextBtn)
 })
 
-btnNextQ.addEventListener('click',function(evt){
+NextQBtn.addEventListener('click',function(evt){
   handleNextQuestion()
-  
 })
 //check if question is last question. Needs to change category
 //create function to update the category
@@ -54,14 +50,9 @@ function init() {
 
 }
 
-function resetGame(){
-  //start from beginning
-  //start categoryIndex at 0
-  //start questionsIndex at 0
-  //reset score to empty array []
-  //reset category to empty object {}
-  //set choicesContainer.innerHTML = '' an empty string
-  setQuestionIndexToNum(0)
+function renderNextBtn(){
+  NextQBtn.innerHTML = `<button class="next-question" id="next-btn">Next Question</button>`
+  console.log(NextQBtn.innerHTML);
 }
 
 
@@ -84,7 +75,7 @@ function setCategory(){
 function changeCategory(){
   // console.log(categoryCount, categoryIndex);
   if (categoryIndex === categoryCount - 1){
-
+//TODO -> Add end of game fn 
     console.log('End of Game');
   } else {
     categoryIndex = categoryIndex + 1
@@ -97,10 +88,12 @@ function changeCategory(){
 }
 /*--Questions--*/
 function setQuestionIndexToNum(num) {
-  console.log(num);
+  // console.log(num);
   questionIndex = num
   //update questionsIndex
 }
+//TODO -> create end of game fn
+//TODO -> create renderFinalScore fn
 
 function renderQandA(){
   // console.log(category)
@@ -130,24 +123,22 @@ function handleSelect(evt){
   const answerIdx = currentQuestion.answerIdx
   if (choiceIndex === answerIdx) {
     updateCatScore()
-    console.log('Correct');
+    // console.log('Correct');
   //TODO -> add else statement, add correct or incorrect visual or audio feedback
   // if answer is correct, update score, else don't update score
+  answerContainer.innerHTML = `<h4 class="answer" id="correct-answer"> You are correct!</h4>`
 } else {
   //TODO -> show correct answer
-  console.log('Incorrect');
-  console.log(`The Correct Answer is: ${currentQuestion.choices[answerIdx]}`);
-  questionContainer.innerHTML = `<h4>${prompt.question}</h4>`
-
+  // console.log(`The Correct Answer is: ${currentQuestion.choices[answerIdx]}`);
+  answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${currentQuestion.choices[answerIdx]}</h4>`
 }
-// console.log(typeof choiceIndex);
-
 }
 
 function handleNextQuestion(){
+  answerContainer.innerHTML = ''
   const lastQuestionIdx = category.questions.length - 1
-  console.log(category)
-  console.log(category.questions)
+  // console.log(category)
+  // console.log(category.questions)
   console.log(questionIndex, lastQuestionIdx)
   
   if (questionIndex < lastQuestionIdx) {
@@ -156,6 +147,22 @@ function handleNextQuestion(){
   } else {
     changeCategory()
   }
+
+  function resetGame(){
+    //start from beginning
+    //start categoryIndex at 0
+    //start questionsIndex at 0
+    //reset score to empty array []
+    //reset category to empty object {}
+    //set choicesContainer.innerHTML = '' an empty string
+    categoryIndex = 0
+    questionIndex = 0
+    scores = []
+    category = {}
+    choicesContainer.innerHTML = ''
+    setQuestionIndexToNum(0)
+  }
+
   //need to find if current questionIndex is less than prompts.length - 1 if so proceed, otherwise handle ending category round
   //update questionIndex by + 1
   //next, call renderQandA
