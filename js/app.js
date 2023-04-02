@@ -19,7 +19,7 @@ const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
 const answerContainer = document.querySelector('#answer-container')
 
-
+/*------------- Scoring -----------*/
 //initial score
 function addCatToScore(){
   scores[categoryIndex] = [0, category.questions.length]
@@ -29,6 +29,7 @@ function updateCatScore(){
   scores[categoryIndex][0] = scores[categoryIndex][0] + 1
 }
 
+//TODO -> create renderFinalScore fn
 /*--------- Event Listeners ---------*/
 startBtn.addEventListener('click', function(evt){
   setCategory()
@@ -36,14 +37,12 @@ startBtn.addEventListener('click', function(evt){
   addCatToScore()
   renderQandA()
   renderNextBtn() 
-  console.log(renderNextBtn)
+  // console.log(renderNextBtn)
 })
 
 NextQBtn.addEventListener('click',function(evt){
   handleNextQuestion()
 })
-//check if question is last question. Needs to change category
-//create function to update the category
 
 /*------------ Functions ------------*/
 function init() {
@@ -56,21 +55,16 @@ function renderNextBtn(){
 }
 
 
-/*--Categories--*/
-function renderCategory(){
-  const categoryName = category.name
-  categoryContainer.innerHTML = `<h3>${categoryName}</h3>`
-}
-
+/*------------- Categories -----------*/
 function setCategory(){
   category = getCategory(categoryIndex)
   //call setQuestion(0) 
 }
 
-// function setCategoryIndex(num){
-//   categoryIndex = categoryIndex + 1
-
-// }
+function renderCategory(){
+  const categoryName = category.name
+  categoryContainer.innerHTML = `<h3>${categoryName}</h3>`
+}
 
 function changeCategory(){
   // console.log(categoryCount, categoryIndex);
@@ -86,14 +80,15 @@ function changeCategory(){
     renderQandA()
   }
 }
-/*--Questions--*/
+
+//TODO -> create function to update the category
+
+/*------------- Questions -----------*/
 function setQuestionIndexToNum(num) {
   // console.log(num);
   questionIndex = num
   //update questionsIndex
 }
-//TODO -> create end of game fn
-//TODO -> create renderFinalScore fn
 
 function renderQandA(){
   // console.log(category)
@@ -148,6 +143,9 @@ function handleNextQuestion(){
     changeCategory()
   }
 
+
+/*------------- End of Game -----------*/
+//TODO -> create end of game fn
   function resetGame(){
     //start from beginning
     //start categoryIndex at 0
@@ -162,9 +160,11 @@ function handleNextQuestion(){
     choicesContainer.innerHTML = ''
     setQuestionIndexToNum(0)
   }
-
   //need to find if current questionIndex is less than prompts.length - 1 if so proceed, otherwise handle ending category round
   //update questionIndex by + 1
   //next, call renderQandA
 }
 
+// function setCategoryIndex(num){
+//   categoryIndex = categoryIndex + 1
+// }
