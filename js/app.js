@@ -79,14 +79,27 @@ function renderQandA(){
   // console.log(category)
   const prompt = category.questions[questionIndex]
   questionContainer.innerHTML = `<h4>${prompt.question}</h4>`
+  let choicesEls =  ''
+  
   prompt.choices.forEach((choice, index) => {
-    const divElement = document.createElement('div')
-    divElement.innerHTML = `<button id="choice-${index}">${choice}</button>`
-    choicesContainer.appendChild(divElement)
-    const choiceEl = document.querySelector(`#choice-${index}`)
-    choiceEl.addEventListener('click', handleSelect)
-    // console.log(choiceEl);
+    choicesEls = choicesEls + `<button class="choice-button" id="choice-${index}">${choice}</button>`
+
   })
+  choicesContainer.innerHTML = choicesEls
+  const allChoices = choicesContainer.querySelectorAll('.choice-button')
+  for ( let i = 0; i < allChoices.length; i++ ){
+    const choiceEl = allChoices[i]
+    choiceEl.addEventListener('click', handleSelect)  
+  }
+
+
+  //   const divElement = document.createElement('div')
+  //   divElement.innerHTML = `<button id="choice-${index}">${choice}</button>`
+  //   choicesContainer.appendChild(divElement)
+  //   const choiceEl = document.querySelector(`#choice-${index}`)
+  //   choiceEl.addEventListener('click', handleSelect)
+  //   // console.log(choiceEl);
+  // })
 }
 
 function handleSelect(evt){
