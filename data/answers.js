@@ -23,7 +23,7 @@ const tvFilm = [
   },
   { question: "What is the name of the movie where Bruce Willis plays a 23rd century New York City cabbie?",
     image: 'nyc.png',
-    choices: ['Die Hard', 'The Fifth Element', '12 Monkeys', 'Last Man Standing' ],
+    choices: ['Die Hard with a Vengeance', 'The Fifth Element', '12 Monkeys', 'Last Man Standing' ],
     answerIdx: 1
   },
 ]

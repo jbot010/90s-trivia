@@ -36,8 +36,9 @@ startBtn.addEventListener('click', function(evt){
   renderCategory()
   addCatToScore()
   renderQandA()
-  renderNextBtn() 
-  // console.log(renderNextBtn)
+  renderNextBtn()
+  hidePlayBtn() 
+  console.log(hidePlaybtn)
 })
 
 NextQBtn.addEventListener('click',function(evt){
@@ -45,6 +46,11 @@ NextQBtn.addEventListener('click',function(evt){
 })
 
 /*------------ Functions ------------*/
+function hidePlayBtn(evt) {
+  document.getElementById("start-button").hidden = true
+  // document.getElementById("start-button").hidden = false
+}
+
 function init() {
 
 }
