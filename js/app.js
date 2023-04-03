@@ -19,6 +19,7 @@ const categoryContainer = document.querySelector('#category-container')
 const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
 const answerContainer = document.querySelector('#answer-container')
+const finalScoreContainer = document.querySelector('#final-score')
 
 /*------------- Scoring -----------*/
 //initial score
@@ -45,9 +46,9 @@ function getCategoryScore(){
 
 //TODO -> create renderFinalScore fn
 function renderScore(score){
+  let finalScore = ''
+  finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2>`
   //score will always be an array of [score, totalQuestions]
-  console.log(score);
-
 }
 
 
@@ -92,6 +93,23 @@ function renderCategory(){
   categoryContainer.innerHTML = `<h3>${categoryName}</h3>`
 }
 
+//TODO -> Create fn to clear board, then renderScore. Can be re use with resetGame
+//TODO -> Add end of game fn
+function clearGame(){
+  categoryContainer.innerHTML = ''
+  questionContainer.innerHTML = ''
+  choicesContainer.innerHTML = ''
+  answerContainer.innerHTML = ''
+  NextQBtn.innerHTML = ''
+}
+
+function endGame(){
+  clearGame()
+  renderScore(totalScore)
+  console.log('End of Game');
+
+}
+
 function changeCategory(){
   getCategoryScore()
   if (categoryIndex === categoryCount - 1){
@@ -110,7 +128,6 @@ function changeCategory(){
 
 /*------------- Questions -----------*/
 function setQuestionIndexToNum(num) {
-  // console.log(num);
   questionIndex = num
   //update questionsIndex
 }
@@ -174,15 +191,8 @@ function handleNextQuestion(){
 
 
 /*------------- End of Game -----------*/
-//TODO -> Create fn to clear board, then renderScore. Can be re use with resetGame
-//TODO -> Add end of game fn
 
-function endGame(){
-  console.log('End of Game');
 
-  renderScore(totalScore)
-
-}
 
 //TODO -> create end of game fn
   function resetGame(){
