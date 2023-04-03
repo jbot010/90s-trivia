@@ -52,11 +52,6 @@ const sports = [
     choices: ['England', 'France', 'Brazil', 'Germany'],
     answerIdx: 1
   },
-  { question: "How old was Tiger Woods when he won his first Master's?",
-    image: 'nyc.png',
-    choices: ['21', '23', '25', '30'],
-    answerIdx: 0
-  },
   { question: "“The Great One” is the nickname of this legend who spent the 90s with the LA Kings, St. Louis Blues, and New York Rangers.",
     image: 'nyc.png',
     choices: ['Mark Messier', 'Mario Lemieux', 'Sergei Fedorov', 'Wayne Gretzky'],

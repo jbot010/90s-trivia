@@ -7,6 +7,7 @@ let category = {}
 let categoryIndex = 0
 let questionIndex = 0
 let scores = []
+let totalScore = [0,0]
 // [[0,0], [0,0], [0,0] ] 
 // [[2,5]]   
 
@@ -22,14 +23,34 @@ const answerContainer = document.querySelector('#answer-container')
 /*------------- Scoring -----------*/
 //initial score
 function addCatToScore(){
-  scores[categoryIndex] = [0, category.questions.length]
+  scores[categoryIndex] = [0, category.questions.length]  
 }
 
 function updateCatScore(){
   scores[categoryIndex][0] = scores[categoryIndex][0] + 1
+  console.log(scores[categoryIndex]);
+}
+// on category end, get cat score by score[categotyIndex] 
+// add these two nums to Total Score arr = [0,xNumOfQs]
+// This will allow you to both display between cats AND quickly show total score
+
+
+function getCategoryScore(){
+  const score = scores[categoryIndex][0]
+  const totalQuesitons = scores[categoryIndex][1]
+  const currentTotalScore = totalScore[0]
+  const currentTotalQuestions = totalScore[1]
+  totalScore = [score + currentTotalScore, totalQuesitons + currentTotalQuestions] 
 }
 
 //TODO -> create renderFinalScore fn
+function renderScore(score){
+  //score will always be an array of [score, totalQuestions]
+  console.log(score);
+
+}
+
+
 /*--------- Event Listeners ---------*/
 startBtn.addEventListener('click', function(evt){
   setCategory()
@@ -38,7 +59,7 @@ startBtn.addEventListener('click', function(evt){
   renderQandA()
   renderNextBtn()
   hidePlayBtn() 
-  console.log(hidePlaybtn)
+  // console.log(hidePlaybtn)
 })
 
 NextQBtn.addEventListener('click',function(evt){
@@ -48,7 +69,6 @@ NextQBtn.addEventListener('click',function(evt){
 /*------------ Functions ------------*/
 function hidePlayBtn(evt) {
   document.getElementById("start-button").hidden = true
-  // document.getElementById("start-button").hidden = false
 }
 
 function init() {
@@ -57,7 +77,7 @@ function init() {
 
 function renderNextBtn(){
   NextQBtn.innerHTML = `<button class="next-question" id="next-btn">Next Question</button>`
-  console.log(NextQBtn.innerHTML);
+  // console.log(NextQBtn.innerHTML);
 }
 
 
@@ -73,10 +93,9 @@ function renderCategory(){
 }
 
 function changeCategory(){
-  // console.log(categoryCount, categoryIndex);
+  getCategoryScore()
   if (categoryIndex === categoryCount - 1){
-//TODO -> Add end of game fn 
-    console.log('End of Game');
+    endGame()
   } else {
     categoryIndex = categoryIndex + 1
     questionIndex = 0
@@ -124,7 +143,7 @@ function handleSelect(evt){
   const answerIdx = currentQuestion.answerIdx
   if (choiceIndex === answerIdx) {
     updateCatScore()
-    // console.log('Correct');
+    console.log('Correct');
   //TODO -> add else statement, add correct or incorrect visual or audio feedback
   // if answer is correct, update score, else don't update score
   answerContainer.innerHTML = `<h4 class="answer" id="correct-answer"> You are correct!</h4>`
@@ -132,15 +151,19 @@ function handleSelect(evt){
   //TODO -> show correct answer
   // console.log(`The Correct Answer is: ${currentQuestion.choices[answerIdx]}`);
   answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${currentQuestion.choices[answerIdx]}</h4>`
+  console.log('INCORRECT');
 }
 }
+
+
+
 
 function handleNextQuestion(){
   answerContainer.innerHTML = ''
   const lastQuestionIdx = category.questions.length - 1
   // console.log(category)
   // console.log(category.questions)
-  console.log(questionIndex, lastQuestionIdx)
+  // console.log(questionIndex, lastQuestionIdx)
   
   if (questionIndex < lastQuestionIdx) {
     setQuestionIndexToNum(questionIndex + 1)
@@ -151,6 +174,16 @@ function handleNextQuestion(){
 
 
 /*------------- End of Game -----------*/
+//TODO -> Create fn to clear board, then renderScore. Can be re use with resetGame
+//TODO -> Add end of game fn
+
+function endGame(){
+  console.log('End of Game');
+
+  renderScore(totalScore)
+
+}
+
 //TODO -> create end of game fn
   function resetGame(){
     //start from beginning
