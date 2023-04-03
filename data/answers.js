@@ -37,11 +37,6 @@ const sports = [
     choices: ['1992', '1994', '1996', '1998'],
     answerIdx: 0
   },
-  { question: "When did Major League Soccer kick off in the U.S.?",
-    image: 'nyc.png',
-    choices: ['1992', '1994', '1996', '1998'],
-    answerIdx: 2
-  },
   { question: "Michael Jordan led the Chicago Bulls to how many championships?",
     image: 'nyc.png',
     choices: ['2', '3', '4', '6'],
@@ -56,6 +51,11 @@ const sports = [
     image: 'nyc.png',
     choices: ['Mark Messier', 'Mario Lemieux', 'Sergei Fedorov', 'Wayne Gretzky'],
     answerIdx: 3
+  },
+  { question: "When did Major League Soccer kick off in the U.S.?",
+    image: 'nyc.png',
+    choices: ['1992', '1994', '1996', '1998'],
+    answerIdx: 2
   },   
 ]
 
