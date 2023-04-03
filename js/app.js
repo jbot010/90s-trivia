@@ -8,8 +8,8 @@ let categoryIndex = 0
 let questionIndex = 0
 let scores = []
 let totalScore = [0,0]
-// [[0,0], [0,0], [0,0] ] 
-// [[2,5]]   
+let startTimeLeft = 3
+
 
 /*---- Cached Element References ----*/
 const startBtn = document.querySelector('#start-button')
@@ -19,7 +19,15 @@ const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
 const answerContainer = document.querySelector('#answer-container')
 const finalScoreContainer = document.querySelector('#final-score')
-const resetGameContainer = document.querySelector('#reset-button')
+const resetBtn = document.querySelector('#reset-button')
+const gameContent = document.querySelector('#game-container')
+const gameIntro = document.querySelector('#game-intro')
+
+// let startTimer = setInterval(function(){
+//   startTimeLeft -= 1
+//   console.log(startTimeLeft);
+// }, 1000)
+
 
 /*------------- Scoring -----------*/
 function addCatToScore(){
@@ -40,19 +48,7 @@ function getCategoryScore(){
 }
 //TODO -> create end of game fn
 function resetGame(){
-  //start from beginning
-  //start categoryIndex at 0
-  //start questionsIndex at 0
-  //reset score to empty array []
-  //reset category to empty object {}
-  //set choicesContainer.innerHTML = '' an empty string
-  // resetGameBtn.addEventListener('click')
-  categoryIndex = 0
-  questionIndex = 0
-  scores = []
-  category = {}
-  choicesContainer.innerHTML = ''
-  setQuestionIndexToNum(0)
+  init()
 }
 //need to find if current questionIndex is less than prompts.length - 1 if so proceed, otherwise handle ending category round
 //update questionIndex by + 1
@@ -71,8 +67,8 @@ function renderScore(score){
 }
 
 function renderResetBtn(){
-  resetGameContainer.innerHTML = `<button class="reset-button">Try again!</button>`
-  resetGameContainer.addEventListener('click', resetGame())
+  resetBtn.innerHTML = `<button class="reset-button">Try again!</button>`
+  resetBtn.addEventListener('click', resetGame)
 }
 
 /*--------- Event Listeners ---------*/
@@ -82,8 +78,7 @@ startBtn.addEventListener('click', function(evt){
   addCatToScore()
   renderQandA()
   renderNextBtn()
-  hidePlayBtn() 
-  // console.log(hidePlaybtn)
+  hidePlayBtn()
 })
 
 NextQBtn.addEventListener('click',function(evt){
@@ -93,16 +88,25 @@ NextQBtn.addEventListener('click',function(evt){
 
 /*------------ Functions ------------*/
 function hidePlayBtn(evt) {
-  document.getElementById("start-button").hidden = true
+  startBtn.hidden = true
 }
 
 function init() {
-
+  categoryIndex = 0
+  questionIndex = 0
+  scores = []
+  category = {}
+  choicesContainer.innerHTML = ''
+  finalScoreContainer.innerHTML = ''
+  setQuestionIndexToNum(0)
+  startBtn.hidden = false
+  resetBtn.hidden = true
+  // gameIntro.appendChild = document.createElement('button')
+  console.log(init);
 }
 
 function renderNextBtn(){
   NextQBtn.innerHTML = `<button class="next-question">Next Question</button>`
-  // console.log(NextQBtn.innerHTML);
 }
 
 
