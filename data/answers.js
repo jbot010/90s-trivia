@@ -1,7 +1,6 @@
 const tvFilm = [
-  { number: 1,
-    question: "What was the #1 watch TV show in 1999?",
-    image: 'friends.png',
+  { question: "What was the #1 watch TV sitcom in 1999?",
+    image: 'friends.jpg',
     choices: ['Friends', 'ER', 'Fraiser', 'Seinfeld'], 
     answerIdx: 0,
     used: false,

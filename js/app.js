@@ -192,7 +192,8 @@ function handleSelect(evt){
 } else {
   answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${currentQuestion.choices[answerIdx]}</h4>`
   console.log('INCORRECT');
-} 
+}
+//TODO -> Add image functionality 
 const imageEl = document.createElement('img')
 imageEl.src = `${currentQuestion.image}`
 answerContainer.appendChild(imageEl)
