@@ -193,6 +193,9 @@ function handleSelect(evt){
   answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${currentQuestion.choices[answerIdx]}</h4>`
   console.log('INCORRECT');
 } 
+const imageEl = document.createElement('img')
+imageEl.src = `${currentQuestion.image}`
+answerContainer.appendChild(imageEl)
 const allChoicesButtons = choicesContainer.querySelectorAll('.choice-button')
 for ( let i = 0; i < allChoicesButtons.length; i++ ){
   const choiceEl = allChoicesButtons[i]
