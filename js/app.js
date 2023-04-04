@@ -8,7 +8,6 @@ let categoryIndex = 0
 let questionIndex = 0
 let scores = []
 let totalScore = [0,0]
-let startTimeLeft = 3
 
 
 /*---- Cached Element References ----*/
@@ -22,12 +21,7 @@ const finalScoreContainer = document.querySelector('#final-score')
 const resetBtn = document.querySelector('#reset-button')
 const gameContent = document.querySelector('#game-container')
 const gameIntro = document.querySelector('#game-intro')
-
-// let startTimer = setInterval(function(){
-//   startTimeLeft -= 1
-//   console.log(startTimeLeft);
-// }, 1000)
-
+const timerContainer = document.querySelector('#timer-content')
 
 /*------------- Scoring -----------*/
 function addCatToScore(){
@@ -152,13 +146,41 @@ function changeCategory(){
 }
 
 /*------------- Questions -----------*/
+let timeLeft = 10
+let timer
+function handleTimer(){
+timer = setInterval(function() {
+  timerContainer.textContent = timeLeft + ' seconds remaining.'
+  timeLeft -= 1
+  if (timeLeft < 0) {
+      timerContainer.textContent = 'Finished'
+      // disableChoicesBtns()
+      handleSelect(null)
+  }
+}, 1000)
+}
+
+function stopTimer(){
+  clearInterval(timer)
+  timeLeft = 10
+  timerContainer.textContent = ''
+}
+
+function disableChoicesBtns(){
+  const allChoicesButtons = choicesContainer.querySelectorAll('.choice-button')
+  for ( let i = 0; i < allChoicesButtons.length; i++ ){
+    const choiceEl = allChoicesButtons[i]
+    choiceEl.disabled = true 
+  }
+}
+
 function setQuestionIndexToNum(num) {
   questionIndex = num
   //update questionsIndex
 }
 
 function renderQandA(){
-  // console.log(category)
+  handleTimer()
   const prompt = category.questions[questionIndex]
   questionContainer.innerHTML = `<h4>${prompt.question}</h4>`
   let choicesEls =  ''
@@ -170,38 +192,37 @@ function renderQandA(){
   for ( let i = 0; i < allChoicesButtons.length; i++ ){
     const choiceEl = allChoicesButtons[i]
     choiceEl.addEventListener('click', handleSelect)
-    console.log(choiceEl)
-      
   }
-
+  
 }
 
 function handleSelect(evt){
+  const currentQuestion = category.questions[questionIndex]
+  const answerIdx = currentQuestion.answerIdx
+  const correctAnswer = currentQuestion.choices[answerIdx]
+  stopTimer()
+  if(evt){
   const value = evt.target.id
   const idxString = value.split('choice-')[1]
   const choiceIndex = parseInt(idxString)
   // console.log(choiceIndex, evt);
-  const currentQuestion = category.questions[questionIndex]
-  const answerIdx = currentQuestion.answerIdx
   if (choiceIndex === answerIdx) {
     updateCatScore()
-//TODO -> DISABLE after click    
-    // console.log('Correct');
   //TODO -> add else statement, add correct or incorrect visual or audio feedback
   answerContainer.innerHTML = `<h4 class="answer" id="correct-answer"> You are correct!</h4>`
 } else {
-  answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${currentQuestion.choices[answerIdx]}</h4>`
+  answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${correctAnswer}</h4>`
+  console.log('INCORRECT');
+}
+} else {
+  answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Time's up! The Answer is: ${correctAnswer}</h4>`
   console.log('INCORRECT');
 }
 //TODO -> Add image functionality 
 const imageEl = document.createElement('img')
 imageEl.src = `${currentQuestion.image}`
 answerContainer.appendChild(imageEl)
-const allChoicesButtons = choicesContainer.querySelectorAll('.choice-button')
-for ( let i = 0; i < allChoicesButtons.length; i++ ){
-  const choiceEl = allChoicesButtons[i]
-  choiceEl.disabled = true  
-}
+disableChoicesBtns()
 }
 
 
@@ -209,6 +230,7 @@ for ( let i = 0; i < allChoicesButtons.length; i++ ){
 
 
 function handleNextQuestion(){
+  stopTimer()
   answerContainer.innerHTML = ''
   const lastQuestionIdx = category.questions.length - 1 
   if (questionIndex < lastQuestionIdx) {
