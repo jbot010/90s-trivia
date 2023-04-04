@@ -101,8 +101,7 @@ function init() {
   setQuestionIndexToNum(0)
   startBtn.hidden = false
   resetBtn.hidden = true
-  // gameIntro.appendChild = document.createElement('button')
-  console.log(init);
+ // gameIntro.appendChild = document.createElement('button')
 }
 
 function renderNextBtn(){
@@ -170,7 +169,9 @@ function renderQandA(){
   const allChoicesButtons = choicesContainer.querySelectorAll('.choice-button')
   for ( let i = 0; i < allChoicesButtons.length; i++ ){
     const choiceEl = allChoicesButtons[i]
-    choiceEl.addEventListener('click', handleSelect)  
+    choiceEl.addEventListener('click', handleSelect)
+    console.log(choiceEl)
+      
   }
 
 }
@@ -184,15 +185,21 @@ function handleSelect(evt){
   const answerIdx = currentQuestion.answerIdx
   if (choiceIndex === answerIdx) {
     updateCatScore()
-    console.log('Correct');
+//TODO -> DISABLE after click    
+    // console.log('Correct');
   //TODO -> add else statement, add correct or incorrect visual or audio feedback
   answerContainer.innerHTML = `<h4 class="answer" id="correct-answer"> You are correct!</h4>`
 } else {
-  // console.log(`The Correct Answer is: ${currentQuestion.choices[answerIdx]}`);
   answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${currentQuestion.choices[answerIdx]}</h4>`
   console.log('INCORRECT');
+} 
+const allChoicesButtons = choicesContainer.querySelectorAll('.choice-button')
+for ( let i = 0; i < allChoicesButtons.length; i++ ){
+  const choiceEl = allChoicesButtons[i]
+  choiceEl.disabled = true  
 }
 }
+
 
 
 
