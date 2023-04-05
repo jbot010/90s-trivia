@@ -9,6 +9,10 @@ let questionIndex = 0
 let scores = []
 let totalScore = [0,0]
 
+const startSound = new Audio ('../assets/audio/start.mp3')
+const youLose = new Audio ('../assets/audio/lose.mp3')
+const youWin = new Audio ('../assets/audio/win.mp3')
+
 
 /*---- Cached Element References ----*/
 const startBtn = document.querySelector('#start-button')
@@ -51,11 +55,14 @@ function resetGame(){
 //TODO -> create renderFinalScore fn
 function renderScore(score){
   let finalScore = ''
-  finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2>`
-  if (score[0] > 10){
-  console.log('great job!');
+  finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2> <h3> Great Job!</h3>`
+  if (score[0] >= 10){
+    youWin.volume = .05
+    youWin.play()
   } else {
-    console.log('🙁 try again!');
+  finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2> <h3> Nice Try! </h3>`
+    youLose.volume = .05
+    youLose.play()
   } 
   renderResetBtn()
 }
@@ -73,6 +80,8 @@ startBtn.addEventListener('click', function(evt){
   renderQandA()
   renderNextBtn()
   hidePlayBtn()
+  startSound.volume = .05
+  startSound.play()
 })
 
 NextQBtn.addEventListener('click',function(evt){
