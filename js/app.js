@@ -2,6 +2,7 @@ import {
 	getCategory,
 	categoryCount
 } from "../data/answers.js"
+
 let category = {}
 let categoryIndex = 0
 let questionIndex = 0
@@ -133,9 +134,9 @@ function changeCategory() {
 		renderQandA()
 	}
 }
+
 let timeLeft = 10
 let timer
-
 function handleTimer() {
 	timer = setInterval(function() {
 		timerContainer.textContent = timeLeft + ' seconds remaining.'
