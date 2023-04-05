@@ -44,25 +44,22 @@ function getCategoryScore(){
   const currentTotalQuestions = totalScore[1]
   totalScore = [score + currentTotalScore, totalQuesitons + currentTotalQuestions] 
 }
-//TODO -> create end of game fn
 function resetGame(){
   init()
 }
-//need to find if current questionIndex is less than prompts.length - 1 if so proceed, otherwise handle ending category round
-//update questionIndex by + 1
-//next, call renderQandA
 
-//TODO -> create renderFinalScore fn
 function renderScore(score){
   let finalScore = ''
   finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2> <h3> Great Job!</h3>`
-  if (score[0] >= 10){
+  if (score[0] > 9){
     youWin.volume = .05
     youWin.play()
+    resetBtn.hidden = false
   } else {
   finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2> <h3> Nice Try! </h3>`
     youLose.volume = .05
     youLose.play()
+    resetBtn.hidden = false
   } 
   renderResetBtn()
 }
@@ -98,6 +95,7 @@ function init() {
   categoryIndex = 0
   questionIndex = 0
   scores = []
+  totalScore = [0,0]
   category = {}
   choicesContainer.innerHTML = ''
   finalScoreContainer.innerHTML = ''
@@ -231,6 +229,7 @@ function handleSelect(evt){
 const imageEl = document.createElement('img')
 imageEl.src = `${currentQuestion.image}`
 answerContainer.appendChild(imageEl)
+console.log(imageEl);
 disableChoicesBtns()
 }
 
