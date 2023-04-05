@@ -4,9 +4,9 @@ const tvFilm = [{
 	choices: ['Friends', 'ER', 'Fraiser', 'Seinfeld'],
 	answerIdx: 0
 }, {
-	question: "Which animated film was the first Disney film to be released on DVD?",
-	image: '../assets/images/mulan.png',
-	choices: ['Aladdin', 'The Lion King', 'Fantasia', 'Mulan'],
+	question: "In the 1993 film, The Sandlot, what snack does Ham offer Smalls?",
+	image: '../assets/images/smalls.jpg',
+	choices: ['Grilled Cheese', 'Pop-Tart', 'Fritos', "S'mores"],
 	answerIdx: 3
 }, {
 	question: "What 1997 action film stars John Malkovich, Nicolas Cage, and John Cusack?",
