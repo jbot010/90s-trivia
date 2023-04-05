@@ -34,7 +34,6 @@ function addCatToScore(){
 
 function updateCatScore(){
   scores[categoryIndex][0] = scores[categoryIndex][0] + 1
-  console.log(scores[categoryIndex]);
 }
 
 function getCategoryScore(){
@@ -121,8 +120,6 @@ function renderCategory(){
   categoryContainer.innerHTML = `<h3>${categoryName}</h3>`
 }
 
-//TODO -> Create fn to clear board, then renderScore. Can be re use with resetGame
-//TODO -> Add end of game fn
 function clearGame(){
   categoryContainer.innerHTML = ''
   questionContainer.innerHTML = ''
@@ -134,8 +131,6 @@ function clearGame(){
 function endGame(){
   clearGame()
   renderScore(totalScore)
-  console.log('End of Game');
-
 }
 
 function changeCategory(){
@@ -203,6 +198,7 @@ function renderQandA(){
   
 }
 
+
 function handleSelect(evt){
   const currentQuestion = category.questions[questionIndex]
   const answerIdx = currentQuestion.answerIdx
@@ -212,30 +208,20 @@ function handleSelect(evt){
   const value = evt.target.id
   const idxString = value.split('choice-')[1]
   const choiceIndex = parseInt(idxString)
-  // console.log(choiceIndex, evt);
   if (choiceIndex === answerIdx) {
     updateCatScore()
-  //TODO -> add else statement, add correct or incorrect visual or audio feedback
   answerContainer.innerHTML = `<h4 class="answer" id="correct-answer"> You are correct!</h4>`
 } else {
   answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Wrong! The Answer is: ${correctAnswer}</h4>`
-  console.log('INCORRECT');
 }
 } else {
   answerContainer.innerHTML = `<h4 class="answer" id="incorrect-answer"> Time's up! The Answer is: ${correctAnswer}</h4>`
-  console.log('INCORRECT');
 }
-//TODO -> Add image functionality 
 const imageEl = document.createElement('img')
 imageEl.src = `${currentQuestion.image}`
 answerContainer.appendChild(imageEl)
-console.log(imageEl);
 disableChoicesBtns()
 }
-
-
-
-
 
 function handleNextQuestion(){
   stopTimer()
