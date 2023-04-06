@@ -57,26 +57,24 @@ background-size: cover;
 #game-content {
   display: flex;
   flex-direction: column;
-  height: 28vh;
-  width: 90.7vw;
-  position: absolute;
-  top: 20vh;
-  left: 4.5vw;
+  padding: 20vh;
+  /* height: 45vh;
+  width: 90vw; */
+  /* position: absolute; */
+  /* top: 20vh;
+  left: 30vw; */
+  /* background-image: url(../assets/images/netscapenoalpha.jpg); */
+  /* background-size: contain;
+  background-repeat: no-repeat; */
 }
 
 #game-content-wrapper {
-  display: flex;
-  /* gap: 10px; */
-  flex-direction: column;
-  /* text-align: center; */
   background-image: url(../assets/images/netscapenoalpha.jpg);
-  justify-content: center;
-  margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 60vh;
+  margin: auto;
+  height: 80vh;
   width: 80vw;
-  /* background-color: red; */
 }
 
 #timer-content {

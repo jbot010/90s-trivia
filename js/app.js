@@ -102,7 +102,6 @@ function renderNextBtn() {
 
 function setCategory() {
 	category = getCategory(categoryIndex)
-	//call setQuestion(0) 
 }
 
 function renderCategory() {
