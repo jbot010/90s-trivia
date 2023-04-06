@@ -41,7 +41,7 @@ const sports = [{
 	choices: ['England', 'France', 'Brazil', 'Germany'],
 	answerIdx: 1
 }, {
-	question: "“The Great One” is the nickname of this legend who spent the 90s with the LA Kings, St. Louis Blues, and New York Rangers.",
+	question: "“The Great One” is the nickname of this legend who spent the 90s with the LA Kings and New York Rangers.",
 	image: '../assets/images/wayne.jpg',
 	choices: ['Mark Messier', 'Mario Lemieux', 'Sergei Fedorov', 'Wayne Gretzky'],
 	answerIdx: 3
