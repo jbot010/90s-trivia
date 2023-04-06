@@ -29,8 +29,16 @@ background-size: cover;
   text-align: center;
 }
 
+#game-intro button {
+  border-radius: 0px;
+}
+
 #game-content h4 {
   text-align: center;
+}
+
+#game-content button {
+  border-radius: 0px;
 }
 
 #answer-container img {
@@ -48,7 +56,7 @@ background-size: cover;
 #game-content {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  /* background-color: white; */
   height: 28vh;
   width: 90.7vw;
   position: absolute;
@@ -60,7 +68,8 @@ background-size: cover;
   display: flex;
   gap: 10px;
   flex-direction: column;
-  background-image: url(../assets/images/netscape.png);
+  /* text-align: center; */
+  background-image: url(../assets/images/netscapenoalpha.jpg);
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
@@ -113,4 +122,5 @@ background-size: cover;
   text-align: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 0px;
 }
