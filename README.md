@@ -18,7 +18,7 @@ There will be 5 questions per category for a total of 15 questions. Test your kn
 ### Images:
 * [Favicon](https://icons8.com/icons/set/ninja-turtle/ "icons8")
 * [Theme](https://codepen.io/MadeByMike/pen/brEOOe)
-* [Image credits]()
+* [Image credits](https://github.com/jbot010/90s-trivia/blob/main/imageattributions.md)
 
 ## Technologies used 💻
 * HTML
