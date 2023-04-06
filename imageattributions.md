@@ -1,5 +1,5 @@
 ## Image Attributions
-* [Ace of Base](https://images.app.goo.gl/Ekf7YAmvS4rmvbBY9)
+* [Ace of Base](https://www.pinterest.com/pin/138063544802460642/)
 
 * [Baby Spice](https://www.nylon.com/articles/baby-spice-appeal)
 
