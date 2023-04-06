@@ -107,7 +107,7 @@ function setCategory() {
 
 function renderCategory() {
 	const categoryName = category.name
-	categoryContainer.innerHTML = `<h3>${categoryName}</h3>`
+	categoryContainer.innerHTML = `<h2>${categoryName}</h2>`
 }
 
 function clearGame() {

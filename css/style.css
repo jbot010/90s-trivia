@@ -51,30 +51,32 @@ background-size: cover;
 #start-button {
   /* display: block; */
   width: 100px;
+  padding: auto;
 }
 
 #game-content {
   display: flex;
   flex-direction: column;
-  /* background-color: white; */
   height: 28vh;
   width: 90.7vw;
   position: absolute;
-  top: 17vh;
-  left: 3.5vw;
+  top: 20vh;
+  left: 4.5vw;
 }
 
 #game-content-wrapper {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   flex-direction: column;
   /* text-align: center; */
   background-image: url(../assets/images/netscapenoalpha.jpg);
+  justify-content: center;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 44vh;
-  width: 95vw;
+  height: 60vh;
+  width: 80vw;
+  /* background-color: red; */
 }
 
 #timer-content {
@@ -87,7 +89,7 @@ background-size: cover;
 #category-container {
   display: flex;
   justify-content: center;
-  height: 30px;
+  height: 40px;
 }
 
 #choices-container {
@@ -112,7 +114,7 @@ background-size: cover;
   flex-direction: column;
 }
 
-#final-score h2, h3 {
+#final-score {
   display: flex;
   align-items: center;
   flex-direction: column;
