@@ -25,12 +25,7 @@ body {
 
 #game-content h4 {
   text-align: center;
-
 }
-
-/* #body-container h3 {
-  ;
-} */
 
 #answer-container img {
   max-width: 300px;
@@ -60,6 +55,7 @@ body {
 #category-container {
   display: flex;
   justify-content: center;
+  height: 30px;
 }
 
 #choices-container {
