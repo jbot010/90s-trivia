@@ -19,7 +19,8 @@ const choicesContainer = document.querySelector('#choices-container')
 const answerContainer = document.querySelector('#answer-container')
 const finalScoreContainer = document.querySelector('#final-score')
 const resetBtn = document.querySelector('#reset-button')
-const gameContent = document.querySelector('#game-container')
+const gameContainer = document.querySelector('#game-container')
+const gameContent = document.querySelector('#game-content')
 const gameIntro = document.querySelector('#game-intro')
 const timerContainer = document.querySelector('#timer-content')
 
@@ -90,6 +91,7 @@ function init() {
 	choicesContainer.innerHTML = ''
 	finalScoreContainer.innerHTML = ''
 	setQuestionIndexToNum(0)
+	gameContent.hidden = false
 	startBtn.hidden = false
 	resetBtn.hidden = true
 }
@@ -119,6 +121,7 @@ function clearGame() {
 function endGame() {
 	clearGame()
 	renderScore(totalScore)
+	gameContent.hidden = true
 }
 
 function changeCategory() {
@@ -143,7 +146,6 @@ function handleTimer() {
 		timeLeft -= 1
 		if (timeLeft < 0) {
 			timerContainer.textContent = 'Finished'
-			// disableChoicesBtns()
 			handleSelect(null)
 		}
 	}, 1000)
