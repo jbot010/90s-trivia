@@ -36,7 +36,7 @@ const sports = [{
 	choices: ['2', '3', '4', '6'],
 	answerIdx: 3
 }, {
-	question: "Which country won the men's world cup in 1998?",
+	question: "Which country won the Men's World Cup in 1998?",
 	image: '../assets/images/france.jpg',
 	choices: ['England', 'France', 'Brazil', 'Germany'],
 	answerIdx: 1
@@ -55,7 +55,7 @@ const sports = [{
 const popCulture = [{
 	question: "What is considered the first reality TV show?",
 	image: '../assets/images/realworld.jpg',
-	choices: ['Survivor', 'Road Rules', 'The Real World', 'MTV Cribs'],
+	choices: ['Survivor', 'Road Rules', 'The Real World', 'Love Island UK'],
 	answerIdx: 2
 }, {
 	question: "What was the bestselling video game console of the 1990s?",
