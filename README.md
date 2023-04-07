@@ -1,10 +1,13 @@
-# Now That's What I Call 90s!
+
 ![90s game](https://raw.githubusercontent.com/jbot010/90s-trivia/main/assets/images/90sgamescreeshot.jpg "90sgamescreenshot")
 
+# Now That's What I Call 90s!
 A trivia game of the 90s including categories of:
 * TV and Film
 * Sports
 * Pop Culture
+
+I created a 90s trivia game as a fun way to revisit the nostalgia of childhood. Designing the game with an early Windows theme, I was reminded of my introduction to computers which led me to my love for technology today. 
 
 ## Getting Started
 There will be 5 questions per category for a total of 15 questions. Test your knowledge of the 90s by selecting your answer from one of the four choices. But beware, you will only have 10 seconds to select your answer. 
