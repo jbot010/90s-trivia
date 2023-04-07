@@ -64,6 +64,7 @@ function renderResetBtn() {
 	resetBtn.innerHTML = `<button class="reset-button">Try again!</button>`
 	resetBtn.addEventListener('click', resetGame)
 }
+
 startBtn.addEventListener('click', function(evt) {
 	setCategory()
 	renderCategory()
