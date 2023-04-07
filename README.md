@@ -39,3 +39,4 @@ There will be 5 questions per category for a total of 15 questions. Test your kn
 * Add more Sound FX
 * Add 90s gifs
 * Add 90s cursor effects
+* Optimize for iOS/iPadOS
