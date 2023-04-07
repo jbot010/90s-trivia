@@ -31,6 +31,7 @@ There will be 5 questions per category for a total of 15 questions. Test your kn
 * JavaScript
 * Git
 * Chrome DevTools
+* Netlify
 
 ## Ice Box 🔮
 * Add expansion questions
