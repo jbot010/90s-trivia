@@ -1,5 +1,5 @@
 # Now That's What I Call 90s!
-![90s game](https://raw.githubusercontent.com/jbot010/90s-trivia/main/assets/images/90striviascreenshot.jpg "90sgamescreenshot")
+![90s game](https://raw.githubusercontent.com/jbot010/90s-trivia/main/assets/images/90sgamescreeshot.jpg "90sgamescreenshot")
 
 A trivia game of the 90s including categories of:
 * TV and Film
