@@ -46,13 +46,13 @@ function resetGame() {
 
 function renderScore(score) {
 	let finalScore = ''
-	finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2> <h3> Great Job!</h3>`
+	finalScoreContainer.innerHTML = finalScore + `<h2> Final Score is ${score[0]} out of ${score[1]}</h2> <h3> Great Job!</h3>`
 	if (score[0] > 9) {
 		youWin.volume = .05
 		youWin.play()
 		resetBtn.hidden = false
 	} else {
-		finalScoreContainer.innerHTML = finalScore + `<h2> Final Score = ${score[0]} out of ${score[1]}</h2> <h3> Nice Try! </h3>`
+		finalScoreContainer.innerHTML = finalScore + `<h2> Final Score is ${score[0]} out of ${score[1]}</h2> <h3> Nice Try! </h3>`
 		youLose.volume = .05
 		youLose.play()
 		resetBtn.hidden = false
