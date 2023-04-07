@@ -27,9 +27,12 @@ There will be 5 questions per category for a total of 15 questions. Test your kn
 * CSS
 * JavaScript
 * Git
+* Chrome DevTools
 
 ## Ice Box 🔮
 * Add expansion questions
 * Randomize questions within categories
 * Expand game to 20 questions
 * Add more Sound FX
+* Add 90s gifs
+* Add 90s cursor effects
