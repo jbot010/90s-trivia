@@ -12,7 +12,7 @@ const startSound = new Audio('../assets/audio/start.mp3')
 const youLose = new Audio('../assets/audio/lose.mp3')
 const youWin = new Audio('../assets/audio/win.mp3')
 const startBtn = document.querySelector('#start-button')
-const NextQBtn = document.querySelector('#next-question')
+const nextQBtn = document.querySelector('#next-question')
 const categoryContainer = document.querySelector('#category-container')
 const questionContainer = document.querySelector('#question-container')
 const choicesContainer = document.querySelector('#choices-container')
@@ -75,7 +75,7 @@ startBtn.addEventListener('click', function(evt) {
 	startSound.volume = .05
 	startSound.play()
 })
-NextQBtn.addEventListener('click', function(evt) {
+nextQBtn.addEventListener('click', function(evt) {
 	handleNextQuestion()
 })
 
@@ -98,7 +98,7 @@ function init() {
 }
 
 function renderNextBtn() {
-	NextQBtn.innerHTML = `<button class="next-question">Next Question</button>`
+	nextQBtn.innerHTML = `<button class="next-question">Next Question</button>`
 }
 
 function setCategory() {
@@ -115,7 +115,7 @@ function clearGame() {
 	questionContainer.innerHTML = ''
 	choicesContainer.innerHTML = ''
 	answerContainer.innerHTML = ''
-	NextQBtn.innerHTML = ''
+	nextQBtn.innerHTML = ''
 }
 
 function endGame() {
